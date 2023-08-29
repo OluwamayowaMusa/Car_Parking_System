@@ -1,0 +1,508 @@
+Analysis & Synthesis report for car_fsm
+Tue Aug 29 02:20:01 2023
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |car_fsm|next_state
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for Inferred Entity Instance: int_to_bit:display_number_of_cars|lpm_divide:Div0
+ 13. Parameter Settings for Inferred Entity Instance: int_to_bit:display_number_of_cars|lpm_divide:Mod1
+ 14. Parameter Settings for Inferred Entity Instance: int_to_bit:display_number_of_cars|lpm_divide:Mod0
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Aug 29 02:20:01 2023          ;
+; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Revision Name                      ; car_fsm                                        ;
+; Top-level Entity Name              ; car_fsm                                        ;
+; Family                             ; MAX 10                                         ;
+; Total logic elements               ; 248                                            ;
+;     Total combinational functions  ; 248                                            ;
+;     Dedicated logic registers      ; 46                                             ;
+; Total registers                    ; 46                                             ;
+; Total pins                         ; 59                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; car_fsm            ; car_fsm            ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+---------+
+; car_fsm.vhd                      ; yes             ; User VHDL File               ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd                ;         ;
+; seg.vhd                          ; yes             ; User VHDL File               ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/seg.vhd                    ;         ;
+; int_to_fourbit.vhd               ; yes             ; User VHDL File               ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_fourbit.vhd         ;         ;
+; int_to_display.vhd               ; yes             ; User VHDL File               ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_divide.tdf             ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/abs_divider.inc            ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/sign_div_unsign.inc        ;         ;
+; aglobal221.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc             ;         ;
+; db/lpm_divide_8sl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/lpm_divide_8sl.tdf      ;         ;
+; db/sign_div_unsign_akh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/sign_div_unsign_akh.tdf ;         ;
+; db/alt_u_div_uee.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/alt_u_div_uee.tdf       ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/add_sub_t3c.tdf         ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/add_sub_u3c.tdf         ;         ;
+; db/lpm_divide_ekl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/lpm_divide_ekl.tdf      ;         ;
+; db/sign_div_unsign_dkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/sign_div_unsign_dkh.tdf ;         ;
+; db/alt_u_div_4fe.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/alt_u_div_4fe.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 248             ;
+;                                             ;                 ;
+; Total combinational functions               ; 248             ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 87              ;
+;     -- 3 input functions                    ; 56              ;
+;     -- <=2 input functions                  ; 105             ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 175             ;
+;     -- arithmetic mode                      ; 73              ;
+;                                             ;                 ;
+; Total registers                             ; 46              ;
+;     -- Dedicated logic registers            ; 46              ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 59              ;
+;                                             ;                 ;
+; Embedded Multiplier 9-bit elements          ; 0               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; reset_btn~input ;
+; Maximum fan-out                             ; 71              ;
+; Total fan-out                               ; 969             ;
+; Average fan-out                             ; 2.35            ;
++---------------------------------------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                              ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                        ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |car_fsm                                  ; 248 (127)           ; 46 (46)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 59   ; 0            ; 0          ; |car_fsm                                                                                                                                   ; car_fsm             ; work         ;
+;    |int_to_bit:display_number_of_cars|    ; 121 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars                                                                                                 ; int_to_bit          ; work         ;
+;       |int_to_four_bit:convNumToFourBit0| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|int_to_four_bit:convNumToFourBit0                                                               ; int_to_four_bit     ; work         ;
+;       |int_to_four_bit:convNumToFourBit1| ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|int_to_four_bit:convNumToFourBit1                                                               ; int_to_four_bit     ; work         ;
+;       |lpm_divide:Div0|                   ; 43 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_8sl:auto_generated|  ; 43 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Div0|lpm_divide_8sl:auto_generated                                                   ; lpm_divide_8sl      ; work         ;
+;             |sign_div_unsign_akh:divider| ; 43 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Div0|lpm_divide_8sl:auto_generated|sign_div_unsign_akh:divider                       ; sign_div_unsign_akh ; work         ;
+;                |alt_u_div_uee:divider|    ; 43 (43)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Div0|lpm_divide_8sl:auto_generated|sign_div_unsign_akh:divider|alt_u_div_uee:divider ; alt_u_div_uee       ; work         ;
+;       |lpm_divide:Mod0|                   ; 55 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ekl:auto_generated|  ; 55 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Mod0|lpm_divide_ekl:auto_generated                                                   ; lpm_divide_ekl      ; work         ;
+;             |sign_div_unsign_dkh:divider| ; 55 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Mod0|lpm_divide_ekl:auto_generated|sign_div_unsign_dkh:divider                       ; sign_div_unsign_dkh ; work         ;
+;                |alt_u_div_4fe:divider|    ; 55 (55)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Mod0|lpm_divide_ekl:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_4fe:divider ; alt_u_div_4fe       ; work         ;
+;       |lpm_divide:Mod1|                   ; 12 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ekl:auto_generated|  ; 12 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Mod1|lpm_divide_ekl:auto_generated                                                   ; lpm_divide_ekl      ; work         ;
+;             |sign_div_unsign_dkh:divider| ; 12 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Mod1|lpm_divide_ekl:auto_generated|sign_div_unsign_dkh:divider                       ; sign_div_unsign_dkh ; work         ;
+;                |alt_u_div_4fe:divider|    ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|lpm_divide:Mod1|lpm_divide_ekl:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_4fe:divider ; alt_u_div_4fe       ; work         ;
+;       |seg:convFourBitToSeg0|             ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|seg:convFourBitToSeg0                                                                           ; seg                 ; work         ;
+;       |seg:convFourBitToSeg1|             ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |car_fsm|int_to_bit:display_number_of_cars|seg:convFourBitToSeg1                                                                           ; seg                 ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |car_fsm|next_state                                                                                                                                                  ;
++--------------------------+---------------------+----------------------+-----------------+-----------------------+-----------------------+--------------------------+-----------------+
+; Name                     ; next_state.NO_SPACE ; next_state.GOING_OUT ; next_state.STOP ; next_state.RIGHT_PASS ; next_state.WRONG_PASS ; next_state.WAIT_PASSWORD ; next_state.IDLE ;
++--------------------------+---------------------+----------------------+-----------------+-----------------------+-----------------------+--------------------------+-----------------+
+; next_state.IDLE          ; 0                   ; 0                    ; 0               ; 0                     ; 0                     ; 0                        ; 0               ;
+; next_state.WAIT_PASSWORD ; 0                   ; 0                    ; 0               ; 0                     ; 0                     ; 1                        ; 1               ;
+; next_state.WRONG_PASS    ; 0                   ; 0                    ; 0               ; 0                     ; 1                     ; 0                        ; 1               ;
+; next_state.RIGHT_PASS    ; 0                   ; 0                    ; 0               ; 1                     ; 0                     ; 0                        ; 1               ;
+; next_state.STOP          ; 0                   ; 0                    ; 1               ; 0                     ; 0                     ; 0                        ; 1               ;
+; next_state.GOING_OUT     ; 0                   ; 1                    ; 0               ; 0                     ; 0                     ; 0                        ; 1               ;
+; next_state.NO_SPACE      ; 1                   ; 0                    ; 0               ; 0                     ; 0                     ; 0                        ; 1               ;
++--------------------------+---------------------+----------------------+-----------------+-----------------------+-----------------------+--------------------------+-----------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; status_led[0]$latch                                ; output_logic        ; yes                    ;
+; status_led[1]$latch                                ; output_logic        ; yes                    ;
+; status_led[2]$latch                                ; output_logic        ; yes                    ;
+; status_led[3]$latch                                ; output_logic        ; yes                    ;
+; Number of user-specified and inferred latches = 4  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 46    ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 38    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 7     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |car_fsm|number_of_cars[4] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |car_fsm|Selector3         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: int_to_bit:display_number_of_cars|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_8sl ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: int_to_bit:display_number_of_cars|lpm_divide:Mod1 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                                  ;
+; LPM_WIDTHD             ; 7              ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_ekl ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: int_to_bit:display_number_of_cars|lpm_divide:Mod0 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                                  ;
+; LPM_WIDTHD             ; 7              ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_ekl ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 59                          ;
+; cycloneiii_ff         ; 46                          ;
+;     CLR               ; 12                          ;
+;     CLR SCLR          ; 26                          ;
+;     ENA               ; 7                           ;
+;     plain             ; 1                           ;
+; cycloneiii_lcell_comb ; 251                         ;
+;     arith             ; 73                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 37                          ;
+;         3 data inputs ; 33                          ;
+;     normal            ; 178                         ;
+;         0 data inputs ; 9                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 52                          ;
+;         3 data inputs ; 23                          ;
+;         4 data inputs ; 87                          ;
+;                       ;                             ;
+; Max LUT depth         ; 13.50                       ;
+; Average LUT depth     ; 7.50                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+    Info: Processing started: Tue Aug 29 02:19:32 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off car_parking_system -c car_fsm
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file car_fsm.vhd
+    Info (12022): Found design unit 1: car_fsm-behaviour File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 15
+    Info (12023): Found entity 1: car_fsm File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file seg.vhd
+    Info (12022): Found design unit 1: seg-decode File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/seg.vhd Line: 9
+    Info (12023): Found entity 1: seg File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/seg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file int_to_fourbit.vhd
+    Info (12022): Found design unit 1: int_to_four_bit-behaviour File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_fourbit.vhd Line: 10
+    Info (12023): Found entity 1: int_to_four_bit File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_fourbit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file int_to_display.vhd
+    Info (12022): Found design unit 1: int_to_bit-behaviour File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 10
+    Info (12023): Found entity 1: int_to_bit File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 4
+Info (12127): Elaborating entity "car_fsm" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at car_fsm.vhd(229): signal "reset_btn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 229
+Warning (10492): VHDL Process Statement warning at car_fsm.vhd(231): signal "current_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 231
+Warning (10492): VHDL Process Statement warning at car_fsm.vhd(247): signal "display1_number_of_car" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 247
+Warning (10492): VHDL Process Statement warning at car_fsm.vhd(248): signal "display0_number_of_car" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 248
+Warning (10631): VHDL Process Statement warning at car_fsm.vhd(240): inferring latch(es) for signal or variable "status_led", which holds its previous value in one or more paths through the process File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+Info (10041): Inferred latch for "status_led[0]" at car_fsm.vhd(240) File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+Info (10041): Inferred latch for "status_led[1]" at car_fsm.vhd(240) File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+Info (10041): Inferred latch for "status_led[2]" at car_fsm.vhd(240) File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+Info (10041): Inferred latch for "status_led[3]" at car_fsm.vhd(240) File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+Info (12128): Elaborating entity "int_to_bit" for hierarchy "int_to_bit:display_number_of_cars" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 115
+Info (12128): Elaborating entity "int_to_four_bit" for hierarchy "int_to_bit:display_number_of_cars|int_to_four_bit:convNumToFourBit0" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 36
+Info (12128): Elaborating entity "seg" for hierarchy "int_to_bit:display_number_of_cars|seg:convFourBitToSeg0" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 37
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "int_to_bit:display_number_of_cars|Div0" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 39
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "int_to_bit:display_number_of_cars|Mod1" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 40
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "int_to_bit:display_number_of_cars|Mod0" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 35
+Info (12130): Elaborated megafunction instantiation "int_to_bit:display_number_of_cars|lpm_divide:Div0" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 39
+Info (12133): Instantiated megafunction "int_to_bit:display_number_of_cars|lpm_divide:Div0" with the following parameter: File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 39
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_8sl.tdf
+    Info (12023): Found entity 1: lpm_divide_8sl File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/lpm_divide_8sl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_akh File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/sign_div_unsign_akh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_uee.tdf
+    Info (12023): Found entity 1: alt_u_div_uee File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/alt_u_div_uee.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "int_to_bit:display_number_of_cars|lpm_divide:Mod1" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 40
+Info (12133): Instantiated megafunction "int_to_bit:display_number_of_cars|lpm_divide:Mod1" with the following parameter: File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/int_to_display.vhd Line: 40
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ekl.tdf
+    Info (12023): Found entity 1: lpm_divide_ekl File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/lpm_divide_ekl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_dkh File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/sign_div_unsign_dkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_4fe.tdf
+    Info (12023): Found entity 1: alt_u_div_4fe File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/alt_u_div_4fe.tdf Line: 27
+Warning (13012): Latch status_led[0]$latch has unsafe behavior File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset_btn File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 5
+Warning (13012): Latch status_led[1]$latch has unsafe behavior File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset_btn File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 5
+Warning (13012): Latch status_led[2]$latch has unsafe behavior File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset_btn File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 5
+Warning (13012): Latch status_led[3]$latch has unsafe behavior File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset_btn File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/car_fsm.vhd Line: 5
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "int_to_bit:display_number_of_cars|lpm_divide:Mod1|lpm_divide_ekl:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_4fe:divider|add_sub_6_result_int[0]~14" File: C:/Users/oluwa/Downloads/EEE308/PROJECT/SIMPLE_CAR_SYSTEM/db/alt_u_div_4fe.tdf Line: 57
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 307 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 46 output pins
+    Info (21061): Implemented 248 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4812 megabytes
+    Info: Processing ended: Tue Aug 29 02:20:01 2023
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:58
+
+

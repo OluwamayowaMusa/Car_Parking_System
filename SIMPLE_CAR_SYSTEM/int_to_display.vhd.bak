@@ -1,0 +1,47 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+ENTITY int_to_bit IS
+	PORT(number: IN INTEGER RANGE 0 TO 50;
+		  display1, display0: OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+		  );
+END ENTITY int_to_bit;
+
+ARCHITECTURE behaviour OF int_to_bit IS
+	-- COMPONENTS
+	COMPONENT int_to_four_bit IS
+		PORT(number: IN INTEGER RANGE 0 TO 10;
+			  four_bit: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+			  );
+	END COMPONENT int_to_four_bit;
+	
+	COMPONENT seg IS
+		PORT(bcd : IN std_logic_vector(3 downto 0);
+			  seven : OUT std_logic_vector(6 downto 0)
+			  );
+	END COMPONENT seg;
+	
+	--SIGNALS
+	SIGNAL s_number: INTEGER RANGE 0 TO 50;
+	SIGNAL s_number1: INTEGER RANGE 0 TO 50;
+	SIGNAL num_to_four_bit: STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL num_to_four_bit1: STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL s_display0: STD_LOGIC_VECTOR(6 DOWNTO 0);
+	SIGNAL s_display1: STD_LOGIC_VECTOR(6 DOWNTO 0);
+	SIGNAL num: INTEGER RANGE 0 TO 10;
+	SIGNAL num1: INTEGER RANGE 0 TO 10;
+BEGIN
+	s_number <= number;
+	num <= s_number mod 10;
+	convNumToFourBit0: int_to_four_bit PORT MAP(number => num, four_bit => num_to_four_bit);
+	convFourBitToSeg0: seg PORT MAP(bcd => num_to_four_bit, seven => s_display0);
+	
+	s_number1 <= s_number / 10;
+	num1 <= s_number1 mod 10;
+	convNumToFourBit1: int_to_four_bit PORT MAP(number => num1, four_bit => num_to_four_bit1);
+	convFourBitToSeg1: seg PORT MAP(bcd => num_to_four_bit1, seven => s_display1);
+	
+	-- OUTPUTS
+	display0 <= s_display0;
+	display1 <= s_display1;
+END ARCHITECTURE behaviour;

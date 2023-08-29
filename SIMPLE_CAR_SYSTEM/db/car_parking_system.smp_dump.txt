@@ -1,0 +1,10 @@
+
+State Machine - |car_fsm|next_state
+Name next_state.NO_SPACE next_state.GOING_OUT next_state.STOP next_state.RIGHT_PASS next_state.WRONG_PASS next_state.WAIT_PASSWORD next_state.IDLE 
+next_state.IDLE 0 0 0 0 0 0 0 
+next_state.WAIT_PASSWORD 0 0 0 0 0 1 1 
+next_state.WRONG_PASS 0 0 0 0 1 0 1 
+next_state.RIGHT_PASS 0 0 0 1 0 0 1 
+next_state.STOP 0 0 1 0 0 0 1 
+next_state.GOING_OUT 0 1 0 0 0 0 1 
+next_state.NO_SPACE 1 0 0 0 0 0 1 

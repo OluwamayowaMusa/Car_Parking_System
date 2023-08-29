@@ -1,0 +1,15 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY car_fsm IS
+	PORT(switch: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+		  led: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+		  );
+END ENTITY car_fsm;
+
+ARCHITECTURE behaviour OF car_fsm IS
+
+BEGIN
+	led(0) <= switch(0);
+	led(9..1) <= "11111111";
+END ARCHITECTURE behaviour;

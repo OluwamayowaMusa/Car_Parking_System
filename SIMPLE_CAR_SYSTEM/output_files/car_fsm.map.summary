@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Tue Aug 29 02:20:01 2023
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : car_fsm
+Top-level Entity Name : car_fsm
+Family : MAX 10
+Total logic elements : 248
+    Total combinational functions : 248
+    Dedicated logic registers : 46
+Total registers : 46
+Total pins : 59
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

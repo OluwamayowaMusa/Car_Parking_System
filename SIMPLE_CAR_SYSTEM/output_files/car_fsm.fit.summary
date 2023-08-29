@@ -1,0 +1,18 @@
+Fitter Status : Successful - Tue Aug 29 02:20:28 2023
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : car_fsm
+Top-level Entity Name : car_fsm
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 250 / 49,760 ( < 1 % )
+    Total combinational functions : 249 / 49,760 ( < 1 % )
+    Dedicated logic registers : 46 / 49,760 ( < 1 % )
+Total registers : 46
+Total pins : 59 / 360 ( 16 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )
